@@ -15,11 +15,7 @@ const infoCorpo = document.querySelector('#info-corpo');
 btnToggleInfo.addEventListener('click', () => {
     const visivel = infoCorpo.style.display !== 'none';
 
-    if(visivel){
-        infoCorpo.style.display = 'none';
-        btnToggleInfo.textContent = 'Mostrar';
-    } else {
-        infoCorpo.style.display = 'block';
-        btnToggleInfo.textContent = 'Ocultar';
-    }
+    visivel ? 
+    (infoCorpo.style.display = 'none', btnToggleInfo.textContent = 'Mostrar'):
+    (infoCorpo.style.display = 'block', btnToggleInfo.textContent = 'Ocultar');
 })
