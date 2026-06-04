@@ -78,3 +78,37 @@ btnSalvar.addEventListener('click', () => {
 btnCancelar.addEventListener('click', () => {
     formEdicao.style.disabled = 'none';
 })
+
+
+const btnTrocarFoto = document.querySelector('#btn-trocar-foto');
+const fotoOpcoes    = document.querySelector('#foto-opcoes');
+const fotoPerfil    = document.querySelector('#foto-perfil');
+
+btnTrocarFoto.addEventListener('click', () => {
+    if(fotoOpcoes.style.display === 'block'){
+        fotoOpcoes.style.display = 'none';
+    } else {
+        fotoOpcoes.style.display = 'block';
+        formEdicao.style.display = 'none';
+    }
+})
+
+const todasFotos = document.querySelectorAll('.foto-opcao');
+
+todasFotos.forEach( opcao => {
+
+    opcao.addEventListener('click', () =>{
+
+        // <img dat-seed="Felix"> ➡️ opcao.dataset.seed ==="Felix"
+
+        const seed = opcao.dataset.seed;
+    
+        fotoPerfil.src =`https://api.dicebear.com/7.x/adventurer/svg?seed=${seed}`;
+    
+        todasFotos.forEach(f = f.classList.remove('selecionada'));
+        opcao.classList.add('selecionada');
+    
+        fotoOpcoes.style.display = 'none';
+    });
+
+})
