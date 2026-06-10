@@ -7,3 +7,4 @@ console.log(titulo.textContent);
 console.log(descricao.textContent);
 console.log(btn.tagName);
 console.log(btn.textContent);
+console.log("erro");
