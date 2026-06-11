@@ -1,12 +1,13 @@
-const texto = container.firstElementChild;
-console.log(texto);
+const btnToggle = document.getElementById("btn-toggle");
+const painel = document.getElementById("painel");
 
-const texto2 = texto.nextElementSibling;
-console.log(texto2);
+let aberto = false;
 
+btnToggle.addEventListener("click", () => {
 
-const span = document.querySelector("#container");
+    aberto = !aberto;
 
-const texto3 = span.parentElement;
-console.log(texto3.textContent);
+    painel.style.display = aberto ? "block" : "none";
+    btnToggle.textContent = aberto ? "Ocultar Detalhes" : "Mostrar Detalhes"
 
+});

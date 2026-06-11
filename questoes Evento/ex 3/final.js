@@ -1,7 +1,10 @@
-const caixa = document.querySelector('#caixa');
-const alerta = document.querySelector('#alerta');
-const card = document.querySelector('#card');
+const campo = document.getElementById("campo");
+const contagem = document.getElementById("contagem");
+const preview = document.getElementById("preview");
 
-caixa.classList.add('destaque');
-alerta.classList.add('oculto');
-card.classList.add('erro');
+campo.addEventListener("input", () => {
+    const texto = campo.value;
+
+    contagem.textContent = `${texto.length} caracteres!`;
+    preview.textContent = texto;
+});

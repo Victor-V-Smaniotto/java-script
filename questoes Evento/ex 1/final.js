@@ -1,10 +1,15 @@
-const titulo = document.querySelector('#titulo');
-const descricao = document.querySelector('.descricao');
-const btn = document.querySelector('#btn');
+const mensagem = document.getElementById("mensagem");
+const btn = document.getElementById("btn");
 
+let clicado = false;
 
-console.log(titulo.textContent);
-console.log(descricao.textContent);
-console.log(btn.tagName);
-console.log(btn.textContent);
-console.log("erro");
+btn.addEventListener("click", () => {
+    if(!clicado){
+        mensagem.textContent = "Botão clicado!";
+        clicado = true;
+    }
+    else{
+        mensagem.textContent = "Clique novamente!";
+        clicado = false;
+    }
+});

@@ -1,7 +1,8 @@
-const nome = document.querySelector('#nome');
-const idade = document.querySelector('#idade');
-const curso = document.querySelector('#curso');
+const caixa = document.getElementById("caixa");
+const botoes = document.querySelectorAll("button");
 
-const idadeNumero = Number(idade.value);
-
-console.log(`Nome: ${nome.value}\nIdade ${idadeNumero}\nTexto: ${curso.value}`);
+botoes.forEach(botao => {
+    botao.addEventListener("click", () => {
+        caixa.style.backgroundColor = botao.dataset.cor;
+    });
+});

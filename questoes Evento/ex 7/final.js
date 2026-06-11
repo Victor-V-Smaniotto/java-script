@@ -1,10 +1,22 @@
-const src = document.querySelector("#foto");
-const href = document.querySelector("#link");
-const campo = document.querySelector("#campo");
+const form = document.querySelector("#form");
+const email = document.querySelector("#email");
+const feedback = document.querySelector("#feedback");
 
-src.setAttribute('src', './img/OIP.jpg');
-href.setAttribute('href', 'https://github.com');
-href.innerHTML = 'meu github';
-campo.setAttribute("disabled", "");
-const linkizinho = src.getAttribute('src');
-console.log(linkizinho);
+
+form.addEventListener("submit", (e)=>{
+
+    e.preventDefault();
+
+    const emailV = email.value.trim();
+
+    if (!emailV.includes('@')) {
+        feedback.style.color = 'red';
+        feedback.textContent = "E-mail inválido!";
+    } else {
+        feedback.style.color = "green";
+        feedback.textContent = "Formulário enviado com sucesso!";
+    }
+
+    
+});
+

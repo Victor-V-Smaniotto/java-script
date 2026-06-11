@@ -1,11 +1,17 @@
-const lista = document.querySelectorAll('.item');
-let contador = 1;
+const campo = document.getElementById("campo");
+const lista = document.getElementById("lista");
 
-lista.forEach(listinha =>{
-    console.log(`Posição: ${contador}  Texto: ${listinha.textContent}`);
+campo.addEventListener("keydown", (e) => {
+    if(e.key === "Enter"){
+        const texto = campo.value.trim();
 
-    if(contador == 3) {
-        listinha.innerHTML = `<Strong>${listinha.textContent}<Strong>`;
-    }              
-    contador ++;          
-})
+        if(texto !== ""){
+            const li = document.createElement("li");
+            li.textContent = texto;
+
+            lista.appendChild(li);
+            campo.value = "";
+
+        }
+    }
+});

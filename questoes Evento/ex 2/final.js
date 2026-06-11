@@ -1,12 +1,17 @@
-const titulo = document.querySelector('#titulo');
-const subtitulo = document.querySelector('#subtitulo');
-const caixa = document.querySelector('#caixa');
+const btnMais = document.querySelector("#btn-inc");
+const btnMenos = document.querySelector("#btn-dec");
+let valor = document.querySelector("#valor");
 
+btnMais.addEventListener("click", ()=>{
+    valor.textContent = Number(valor.textContent) + 1;
+})
 
-titulo.textContent = "JavaScript no DOM!";
-subtitulo.textContent = "Meu nome";
-caixa.innerHTML = 'Nova <strong>caixa!</strong>';
+btnMenos.addEventListener("click", ()=>{
+    if(valor.textContent === 0){
+        btnMenos.disabled = true;
+    } else if (valor.textContent >0){
+        btnMenos.disabled = false;
+        valor.textContent = Number(valor.textContent) - 1;
+    }
 
-console.log(titulo.textContent);
-console.log(subtitulo.textContent);
-console.log(caixa.textContent);
+})
