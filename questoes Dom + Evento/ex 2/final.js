@@ -1,25 +1,18 @@
 
-const senha = document.selectElementByID("senha");
-const indicador = document.selectElementByID("indicador");
-
-
+const senha = document.getElementById("senha");
+const indicador = document.getElementById("indicador");
 
 senha.addEventListener("input", () => {
     const texto = senha.value;
+    const tamanho = texto.length;
 
-    indicador.textContent = `${texto.length} caracteres!`;
+    if(tamanho < 6) {
+        senha.style.color = "red";
+    } else if (tamanho >= 6 && tamanho <= 9){
+        senha.style.color = "orange";
+    } else if (tamanho >= 10){
+        senha.style.color = "green";
+    }
 
 });
 
-
-if(indicador < 6) {
-    fundo.style.backgroundColor = "#red";
-} else if (indicador >= 6 && indicador <= 9){
-    fundo.style.backgroundColor = "#orange";
-} else if (indicador >= 10){
-    fundo.style.backgroundColor = "#green";
-}
-
-senha.addEventListener("keyDown", (e) => {
-    
-});
