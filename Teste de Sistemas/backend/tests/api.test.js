@@ -9,8 +9,9 @@ const app = require("../app");
 
 // questão 2
 test("Listar array de jogos", async () =>{
-    const response = await response(app).get("/api/games");
-    
+    const response = await request(app).get("/api/games");
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body.length).toBeGreaterThan(0);
 })
 
 
