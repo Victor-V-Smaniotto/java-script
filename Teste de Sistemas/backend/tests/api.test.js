@@ -61,7 +61,12 @@ test("Criar um outro novo jogo", async () =>{
     expect(getResponse.statusCode).toBe(200);
   });
 
+// ex 7:
 
+/*
+Está errado porque o status correto para criação de um recurso em uma API REST é 201 (Created), e não 200 (OK).
+O 201 indica explicitamente que o recurso foi criado com sucesso, enquanto o 200 é apenas uma resposta genérica de sucesso.
+*/
 
 
 
