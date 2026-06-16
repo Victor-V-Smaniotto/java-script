@@ -40,6 +40,8 @@ const app = require("../app");
 //     expect(response.statusCode).toBe(500);
 // })
 
+
+// ex 6
 test("Criar um novo jogo", async () =>{ 
 
     const response = await request(app).post("/api/games")
@@ -66,10 +68,31 @@ test("Criar um novo jogo", async () =>{
 
 })
 
+//ex 5
+ test("Criar e buscar um novo jogo", async () => {
+    const createResponse = await request(app)
+      .post("/api/games")
+      .send({
+        title: "Abacatudo & Moranguete",
+        genre: "RPG",
+        release_year: 2026
+      });
+  
+    expect(createResponse.statusCode).toBe(200);
+  
+    const idJogo = createResponse.body.id;
+  
+    const getResponse = await request(app)
+      .get(`/api/games/${idJogo}`);
+  
+    expect(getResponse.statusCode).toBe(200);
+  });
 
-
-// ex 6 desafio mega fodido
-
+// ex 7:
+/*
+Está errado porque o status correto para criação de um recurso em uma API REST é 201 (Created), e não 200 (OK).
+O 201 indica que o recurso foi criado com sucesso, enquanto o 200 é apenas uma resposta genérica de sucesso.
+*/
 
 
 
