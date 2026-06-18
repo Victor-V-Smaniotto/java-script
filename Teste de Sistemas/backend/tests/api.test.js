@@ -63,7 +63,7 @@ test("Criar um novo jogo", async () =>{
 
     const response3 = await request(app).get(`/api/games/${response.body.id}`);
     expect(response3.body.id).toBe(response.body.id);
-    expect(response3.statusCode).toBe(400);
+    expect(response3.statusCode).toBe(404);
 
 
 })
