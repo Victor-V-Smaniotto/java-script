@@ -41,6 +41,7 @@ const app = require("../app");
 
 
 // ex 6
+
 test("Criar um novo jogo", async () =>{ 
 
     const response = await request(app).post("/api/games")
@@ -57,12 +58,11 @@ test("Criar um novo jogo", async () =>{
     expect(response2.body.id).toBe(response.body.id);
     expect(response2.statusCode).toBe(200);
 
-    const  remove = await request(app).delete(`/api/games/${response.body.id}`);
-    expect(remove.body.id).toBe(response.body.id);
+		const remove = await request(app).delete(`/api/games/${response.body.id}`);
+		expect(remove.statusCode).toBe(204);
 
-    const response3 = await request(app).get(`/api/games/${response.body.id}`);
-    expect(response3.body.id).toBe(response.body.id);
-    expect(response3.statusCode).toBe(404);
+		const response3 = await request(app).get(`/api/games/${response.body.id}`);
+		expect(response3.statusCode).toBe(404);
 
 
 })
